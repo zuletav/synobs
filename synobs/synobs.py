@@ -84,10 +84,7 @@ class simulationcube(imagecube):
         noise = np.random.normal(size=data.shape)
         noise = convolve_fft(noise, beam, boundary='wrap')
 
-        #print(f'rms_new: {rms_new:.2e}, rms_old: {rms_old:.2e}, std(noise): {np.std(noise):.2e}, std(data): {np.std(data):.2e}')
-        #print(f'rms_new / std(noise): {rms_new / np.std(noise):.2e}, rms_new / std(data): {rms_new / np.std(data):.2e}')
-
-        return data + noise * rms_new / np.std(noise)
+        return data + noise * rms_new
     
     def get_conversion_factor(self, bmaj, bmin, verbose):
         if 'jy/pix' in self.header['bunit'].lower():
