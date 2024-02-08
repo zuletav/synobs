@@ -140,7 +140,7 @@ class simulationcube(imagecube):
     def save_synthethic_obs(self, data, bmaj=None, bmin=None, bpa=None, filename=None, overwrite=False):
 
         if filename is None:
-            filename = self.path.replace('.fits', f'{bmaj}FWHM_synthehic.fits')
+            filename = self.path.replace('.fits', f'{bmaj}FWHM_synthetic.fits')
         
         hdu = fits.PrimaryHDU(data=data, header=self.header)
         hdu.data = data
